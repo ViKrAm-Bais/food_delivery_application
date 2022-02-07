@@ -51,21 +51,17 @@ router.post('/additem', auth, async (req, res) => {
 router.post('/getitem/:id', async (req, res) => {
     try {
         // restaurant
+        console.log("temp test")
         const restaurantId = req.params.id;
-        console.log("ididiid", restaurantId)
 
         var items = []
 
         for (var i=0; i < itemList.length; i++) {
-            console.log("out", (itemList[i].restaurantId.toString() === req.params.id.toString()))
 
             if (itemList[i].restaurantId.toString() === req.params.id.toString()) {
                 items.push(itemList[i])
-                // console.log("in", itemList[i]) // 1204921225282
-
             }
         }
-        console.log(items)
         res.status(200).json(items)
     } catch (error) {
         console.log("err: ", error);

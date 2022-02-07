@@ -29,33 +29,36 @@ const useStyles = makeStyles({
     },
     text: {
         color: '#878787',
-        fontSize: 12
+        fontSize: 24
     },
     heading: {
-        fontSize: 20,
+        fontSize: 32,
         fontWeight: 600,
         textAlign: 'center'
     },
     detail: {
-        fontSize: 10,
+        fontSize: 14,
         wordBreak: 'break-word',
         textAlign: 'center'
     }
 })
 
-function ItemView(props) {
+function ItemsView(props) {
 
-    const item = props.item;
-
+    const ele = props.item;
+    console.log(ele)
     const classes = useStyles();
 
 
     return (
-        <Box className={classes.container}>
-            <Typography className={classes.text}>{item.id}</Typography>
-            <Typography className={classes.text}>{item.itemName}</Typography>
-        </Box>
+        <>
+        <h1>Hellooo</h1>
+        </>
+        // <Box className={classes.container}>
+        //     <Typography className={classes.text}>{ele.restaurantId}</Typography>
+        //     <Typography className={classes.text}>{ele.itemName}</Typography>
+        // </Box>
     )
 }
 
-export default ItemView
+export default ItemsView

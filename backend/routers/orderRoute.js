@@ -20,20 +20,21 @@ router.post('/addorder', auth, async (req, res) => {
 
 router.post('/getorderlist', auth, async (req, res) => {
     try {
+        console.log(req.role, req.user)
         const { customerId, restaurantId } = req.body
         var items = []
 
-        if(customerId) {
+        if(req.role === "customer") {
             for (var i=0; i < OrderList.length; i++) {
-                if (OrderList[i].customerId === customerId) {
+                if (OrderList[i].customerId === req.user) {
                     items.push(OrderList[i].itemName)
                 }
             }
         }
 
-        if(restaurantId) {
+        if(req.role === "restaurant") {
             for (var i=0; i < OrderList.length; i++) {
-                if (OrderList[i].restaurantId === restaurantId) {
+                if (OrderList[i].restaurantId === req.user) {
                     items.push(OrderList[i].itemName)
                 }
             }

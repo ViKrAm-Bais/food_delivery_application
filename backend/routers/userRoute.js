@@ -79,7 +79,9 @@ router.post("/", async (req, res) => {
 
         res.cookie("token", token, {
             httpOnly: true,
-        }).send()
+        }).send("done")
+
+
 
     } catch (error) {
         console.log("Error: ", error);
@@ -132,7 +134,7 @@ router.post("/login", async (req, res) => {
 
         res.cookie("token", token, {
             httpOnly: true,
-        }).send()
+        }).send("done")
 
     } catch (error) {
         console.log("error: ", error)
@@ -157,7 +159,7 @@ router.get("/logout", (req, res) => {
     res.cookie("token", "", {
         httpOnly: true,
         expires: new Date(0)
-    }).send();
+    }).send("done");
 })
 
 module.exports = router;

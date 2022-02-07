@@ -14,10 +14,6 @@ export default function Router() {
         <BrowserRouter>
         <Navbar/>
             <Switch>
-                    {/* <Route exact path="/details/:id">
-                        {console.log("clicked")}
-                                <DetailView/>
-                    </Route> */}
                     <Route exact path="/">
                         <Home/>
                     </Route>
@@ -35,8 +31,9 @@ export default function Router() {
                     {
                         loggedIn === true &&
                         <>
-                            {/* <Route exact path="/customers">
-                            </Route> */}
+                            <Route exact path="/register">
+                                {/* <MyOrder/> */}
+                            </Route>
                         </>
                     }
                     
