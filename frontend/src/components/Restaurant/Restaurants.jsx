@@ -2,7 +2,7 @@ import { Grid } from '@material-ui/core'
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, withRouter } from 'react-router-dom';
 import Restaurant from './Restaurant';
 
 function Restaurants() {
@@ -35,4 +35,4 @@ function Restaurants() {
     )
 }
 
-export default Restaurants;
+export default withRouter(Restaurants);

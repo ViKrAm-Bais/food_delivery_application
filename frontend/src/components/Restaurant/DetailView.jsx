@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { Box, Typography, makeStyles } from '@material-ui/core'
 
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation , withRouter} from 'react-router-dom';
 import ItemsView from './ItemsView';
 
 
@@ -34,4 +34,4 @@ function DetailView({match}) {
     )
 }
 
-export default DetailView
+export default withRouter(DetailView)
