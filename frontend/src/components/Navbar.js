@@ -32,20 +32,6 @@ function Navbar() {
 
     return (
         <>
-            {/* <Link to='/'><Typography>HOME</Typography></Link>
-
-            {loggedIn === false && (
-                <> 
-                    <Link to='/login'><Typography>LOGIN</Typography></Link>
-                    <Link to='/register'><Typography>REGISTER</Typography></Link>
-                </>
-            )}
-            {
-                loggedIn === true && 
-                <>
-                    <Logout/>
-                </>
-            } */}
 
             <AppBar position="sticky" className={classes.component}>
                 <Toolbar className= {classes.container}>

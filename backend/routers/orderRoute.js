@@ -6,11 +6,9 @@ const OrderList = require('../models/orderList');
 router.post('/addorder', auth, async (req, res) => {
     try {
         const { customerId, restaurantId, itemName, role } = req.body
-        // console.log("order", customerId, restaurantId, itemName, role)
         OrderList.push({ customerId, restaurantId, itemName });
 
         res.status(200).json(OrderList)
-        // console.log(OrderList)
     } catch (error) {
         console.log("err: ", error);
         res.status(500).send();
@@ -20,7 +18,6 @@ router.post('/addorder', auth, async (req, res) => {
 
 router.post('/getorderlist', auth, async (req, res) => {
     try {
-        console.log(req.role, req.user)
         const { customerId, restaurantId } = req.body
         var items = []
 
@@ -39,9 +36,7 @@ router.post('/getorderlist', auth, async (req, res) => {
                 }
             }
         }
-
         res.status(200).json(items)
-        // console.log(items)
     } catch (error) {
         console.log("err: ", error);
         res.status(500).send();

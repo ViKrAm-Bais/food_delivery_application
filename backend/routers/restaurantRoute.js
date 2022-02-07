@@ -4,7 +4,6 @@ const auth = require('../middleware/auth')
 const itemList = require('../models/itemList');
 const userList = require('../models/userList');
 
-
 router.post("/getrestaurants", async (req, res) => { 
     
     try {
@@ -30,7 +29,6 @@ router.post('/additem', auth, async (req, res) => {
         var existingItem = false
         for (var i=0; i < itemList.length; i++) {
             if (itemList[i].restaurantId === restaurantId && itemList[i].itemName === itemName) {
-                // console.log("item already exists")
                 existingItem = true;
                 break;
             }
@@ -51,7 +49,6 @@ router.post('/additem', auth, async (req, res) => {
 router.post('/getitem/:id', async (req, res) => {
     try {
         // restaurant
-        console.log("temp test")
         const restaurantId = req.params.id;
 
         var items = []
@@ -73,19 +70,12 @@ router.post('/deleteitem', auth, async (req, res) => {
     try {
         // restaurant
         const {restaurantId, itemName} = req.body
-        // console.log("restaurant/getitem", restaurantId);
-
-        // console.log("before",  itemList.length)
-
         for (var i=0; i < itemList.length; i++) {
             if (itemList[i].restaurantId === restaurantId && itemList[i].itemName === itemName) {
-                // console.log(req.user, itemList[i].itemName)
                 itemList.splice(i, 1)
                 break;
             }
         }
-
-        // console.log("after",  itemList.length)
 
         res.status(200).json("done")
     } catch (error) {

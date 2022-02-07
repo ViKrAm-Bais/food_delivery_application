@@ -9,13 +9,6 @@ const Home = () => {
         <>
         <HomeFrame/>
         <Restaurants/>
-        {/* <Grid container>
-            <Grid item lg={2} xs={12} sm={2}>
-                
-            </Grid>
-            <Grid container item lg={10} xs={12} sm={10}>
-            </Grid>
-        </Grid> */}
         </>
     )
 }

@@ -16,8 +16,6 @@ function DetailView({match}) {
             let data = await axios.post("http://localhost:5000/restaurant/getitem/" + match.params.id, {
                 withCredentials: true
             });
-            
-            console.log("itemList", data.data)
             setItemList(data.data)
 
         }
@@ -27,7 +25,6 @@ function DetailView({match}) {
     return (
         itemList.map(ele=>(
             <Grid item lg={2} sm={3} xs={6}>
-                {console.log("hereee", ele.itemName)}
                 <ItemsView item = {ele}/>
             </Grid>
         ))

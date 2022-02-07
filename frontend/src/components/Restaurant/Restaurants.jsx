@@ -12,12 +12,9 @@ function Restaurants() {
 
     useEffect(()=> {
         const fetchData = async ()=> {
-            console.log("working ..")
-
             let data = await axios.post("http://localhost:5000/restaurant/getrestaurants", {
                 withCredentials: true
             });
-            console.log("useEffect: ", data)
             setRestaurantList(data.data)
         }
         fetchData();
@@ -26,7 +23,6 @@ function Restaurants() {
     return (
         restaurantList.map(ele=>(
             <Grid item lg={2} sm={3} xs={6}>
-                {console.log("hereee", ele.id)}
                 <Link to={'/details/'+ele.id} style ={{textDecoration: 'none', color: 'inherit'}  } >
                     <Restaurant restaurant = {ele} />
                 </Link>

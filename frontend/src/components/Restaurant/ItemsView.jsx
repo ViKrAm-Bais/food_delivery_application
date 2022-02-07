@@ -46,18 +46,14 @@ const useStyles = makeStyles({
 function ItemsView(props) {
 
     const ele = props.item;
-    console.log(ele)
     const classes = useStyles();
 
 
     return (
-        <>
-        <h1>Hellooo</h1>
-        </>
-        // <Box className={classes.container}>
-        //     <Typography className={classes.text}>{ele.restaurantId}</Typography>
-        //     <Typography className={classes.text}>{ele.itemName}</Typography>
-        // </Box>
+        <Box className={classes.container}>
+            <Typography className={classes.text}>{ele.restaurantId}</Typography>
+            <Typography className={classes.text}>{ele.itemName}</Typography>
+        </Box>
     )
 }
 

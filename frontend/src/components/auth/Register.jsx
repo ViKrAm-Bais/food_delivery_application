@@ -92,31 +92,6 @@ function Register() {
 
     return (
         <>
-            {/* <h1>Register</h1>
-            <form action="" onSubmit={register}>
-                <input placeholder="Name" type="string" 
-                    onChange = {(e) => {setName(e.target.value)}}
-                    value = {name}
-                />
-                <input placeholder="Role" type="string" 
-                    onChange = {(e) => {setRole(e.target.value)}}
-                    value = {role}
-                />
-                <input placeholder="Email" type="email" 
-                    onChange = {(e) => {setEmail(e.target.value)}}
-                    value = {email}
-                />
-                <input  placeholder="Password" type="password" 
-                    onChange = {(e) => {setPassword(e.target.value)}}
-                    value = {password}
-                />
-                <input  placeholder="Re-enter Password" type="password" 
-                    onChange = {(e) => {setPasswordverify(e.target.value)}}
-                    value = {passwordVerify}
-                />
-                <button type="submit">Register</button>
-            </form> */}
-
             <Box className={classes.container}>
             <Typography className={classes.login}>REGISTER</Typography>
 

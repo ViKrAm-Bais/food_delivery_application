@@ -7,7 +7,6 @@ const UserList = require('../models/userList');
 router.post("/", async (req, res) => {
     try {
         const {name, role, email, password, passwordVerify} = req.body;
-        // console.log(email, name, role, password, passwordVerify);
 
         // validation 
         if(!email || !name || !role || !password || !passwordVerify) {
@@ -33,7 +32,6 @@ router.post("/", async (req, res) => {
 
         for (var i=0; i < UserList.length; i++) {
             if (UserList[i].email === email) {
-                // console.log("Already have an account")
                 existingUser = true;
                 break;
             }
@@ -65,11 +63,6 @@ router.post("/", async (req, res) => {
         let _id = Math.floor(Math.random() * Date.now())
 
         // log the user in
-
-        for (var i=0; i < UserList.length; i++) {
-            // console.log("user: ", UserList[i])
-        }
-
         const token = jwt.sign({ 
             user: newUser.id,
             role: newUser.role
@@ -93,10 +86,6 @@ router.post("/", async (req, res) => {
 
 
 router.post("/login", async (req, res) => {
-    // console.log("login")
-    for (var i=0; i < UserList.length; i++) {
-        // console.log("user: ", UserList[i])
-    }
     try {
         const {email, password} = req.body;
 
@@ -110,7 +99,6 @@ router.post("/login", async (req, res) => {
 
         for (var i=0; i < UserList.length; i++) {
             if (UserList[i].email === email) {
-                console.log("Already have an account")
                 existingUser = UserList[i];
                 break;
             }
@@ -122,7 +110,6 @@ router.post("/login", async (req, res) => {
 
         const passwordCorrect = await bcrypt.compare(password, existingUser.passwordHash);
         
-        // console.log(passwordCorrect);
         if(!passwordCorrect) 
         return res.status(400).json({
             errorMessage: "Wrong email or password"
