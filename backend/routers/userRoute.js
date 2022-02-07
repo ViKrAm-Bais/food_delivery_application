@@ -6,7 +6,7 @@ const UserList = require('../models/userList');
 
 router.post("/", async (req, res) => {
     try {
-        const {email, name, role, password, passwordVerify} = req.body;
+        const {name, role, email, password, passwordVerify} = req.body;
         // console.log(email, name, role, password, passwordVerify);
 
         // validation 
@@ -86,6 +86,9 @@ router.post("/", async (req, res) => {
         res.status(500).send();
     }
 })
+
+
+
 
 router.post("/login", async (req, res) => {
     // console.log("login")

@@ -2,6 +2,24 @@ const router = require('express').Router();
 const auth = require('../middleware/auth')
 
 const itemList = require('../models/itemList');
+const userList = require('../models/userList');
+
+
+router.post("/getrestaurants", async (req, res) => { 
+    
+    try {
+        var items = []
+        for (var i=0; i < userList.length; i++) {
+            if (userList[i].role === "restaurant" ) {
+                items.push(userList[i]);
+            }
+        }
+        res.status(200).json(items)
+    } catch (error) {
+        console.log("err: ", error);
+        res.status(500).send();
+    }
+})
 
 router.post('/additem', auth, async (req, res) => {
     try {
@@ -30,19 +48,24 @@ router.post('/additem', auth, async (req, res) => {
     }
 })
 
-router.post('/getitem', auth, async (req, res) => {
+router.post('/getitem/:id', async (req, res) => {
     try {
         // restaurant
-        const {restaurantId} = req.body
+        const restaurantId = req.params.id;
+        console.log("ididiid", restaurantId)
 
         var items = []
 
         for (var i=0; i < itemList.length; i++) {
-            if (itemList[i].restaurantId === restaurantId) {
+            console.log("out", (itemList[i].restaurantId.toString() === req.params.id.toString()))
+
+            if (itemList[i].restaurantId.toString() === req.params.id.toString()) {
                 items.push(itemList[i])
-                existingUser = true;
+                // console.log("in", itemList[i]) // 1204921225282
+
             }
         }
+        console.log(items)
         res.status(200).json(items)
     } catch (error) {
         console.log("err: ", error);
